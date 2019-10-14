@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Coming+Soon&display=swap" rel="stylesheet">   
+<link href="https://fonts.googleapis.com/css?family=Livvic&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class = "container">
+    <h1>Word Counter</h1>
+    <textarea class="text" placeholder="Type in here ..."></textarea>
+        <div class="title">
+        <span id="letters">Letters : 0</span>
+        <span id="words">Words : 0</span>
+        </div>
+</div>
+
+<script>
+ 
+
+ let input = document.querySelector(".text");
+ let letter = document.querySelector("#letters");
+ let words = document.querySelector("#words");
+
+ input.addEventListener('keyup',function(){
+    //  console.log(input.value.length)
+    
+    // trimming the spaces and counting the letters
+    let str = input.value.trim().replace(/\s+/g,'').length; 
+    letter.innerHTML = `Letters : ${str}`;
+    
+    // trimming the spaces and counting the words
+    let word = input.value.trim().split(' ').length;
+    words.innerHTML = `Words : ${word}`;
+
+    if(input.value ===""){
+     words.innerHTML = "Words : 0";
+    }
+
+  // word limit of 5
+   if(word>5){
+       alert("word limit crossed")
+   }
+
+ });
+ 
+ 
+
+</script>
+</body>
+</html>
